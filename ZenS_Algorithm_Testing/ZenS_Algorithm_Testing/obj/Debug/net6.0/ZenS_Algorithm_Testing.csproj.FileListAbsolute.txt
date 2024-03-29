@@ -1,0 +1,14 @@
+C:\Users\HONG VINH\source\repos\ZenS_Algorithm_Testing\ZenS_Algorithm_Testing\bin\Debug\net6.0\ZenS_Algorithm_Testing.exe
+C:\Users\HONG VINH\source\repos\ZenS_Algorithm_Testing\ZenS_Algorithm_Testing\bin\Debug\net6.0\ZenS_Algorithm_Testing.deps.json
+C:\Users\HONG VINH\source\repos\ZenS_Algorithm_Testing\ZenS_Algorithm_Testing\bin\Debug\net6.0\ZenS_Algorithm_Testing.runtimeconfig.json
+C:\Users\HONG VINH\source\repos\ZenS_Algorithm_Testing\ZenS_Algorithm_Testing\bin\Debug\net6.0\ZenS_Algorithm_Testing.dll
+C:\Users\HONG VINH\source\repos\ZenS_Algorithm_Testing\ZenS_Algorithm_Testing\bin\Debug\net6.0\ZenS_Algorithm_Testing.pdb
+C:\Users\HONG VINH\source\repos\ZenS_Algorithm_Testing\ZenS_Algorithm_Testing\obj\Debug\net6.0\ZenS_Algorithm_Testing.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HONG VINH\source\repos\ZenS_Algorithm_Testing\ZenS_Algorithm_Testing\obj\Debug\net6.0\ZenS_Algorithm_Testing.AssemblyInfoInputs.cache
+C:\Users\HONG VINH\source\repos\ZenS_Algorithm_Testing\ZenS_Algorithm_Testing\obj\Debug\net6.0\ZenS_Algorithm_Testing.AssemblyInfo.cs
+C:\Users\HONG VINH\source\repos\ZenS_Algorithm_Testing\ZenS_Algorithm_Testing\obj\Debug\net6.0\ZenS_Algorithm_Testing.csproj.CoreCompileInputs.cache
+C:\Users\HONG VINH\source\repos\ZenS_Algorithm_Testing\ZenS_Algorithm_Testing\obj\Debug\net6.0\ZenS_Algorithm_Testing.dll
+C:\Users\HONG VINH\source\repos\ZenS_Algorithm_Testing\ZenS_Algorithm_Testing\obj\Debug\net6.0\refint\ZenS_Algorithm_Testing.dll
+C:\Users\HONG VINH\source\repos\ZenS_Algorithm_Testing\ZenS_Algorithm_Testing\obj\Debug\net6.0\ZenS_Algorithm_Testing.pdb
+C:\Users\HONG VINH\source\repos\ZenS_Algorithm_Testing\ZenS_Algorithm_Testing\obj\Debug\net6.0\ZenS_Algorithm_Testing.genruntimeconfig.cache
+C:\Users\HONG VINH\source\repos\ZenS_Algorithm_Testing\ZenS_Algorithm_Testing\obj\Debug\net6.0\ref\ZenS_Algorithm_Testing.dll
