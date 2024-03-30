@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ZenSDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Joke">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ViewedJokes" Relationship="ZenSDBModel.FK__ViewedJok__JokeI__5DCAEF64" FromRole="Joke" ToRole="ViewedJoke" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ViewedJokes" Relationship="ZenSDBModel.FK__ViewedJok__UserI__5CD6CB2B" FromRole="User" ToRole="ViewedJoke" />
+  </EntityType>
+  <EntityContainer Name="ZenSDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Jokes" EntityType="Self.Joke" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="ViewedJokes" EntityType="ZenSDBModel.ViewedJoke" />
+    <AssociationSet Name="FK__ViewedJok__JokeI__5DCAEF64" Association="ZenSDBModel.FK__ViewedJok__JokeI__5DCAEF64">
+      <End Role="Joke" EntitySet="Jokes" />
+      <End Role="ViewedJoke" EntitySet="ViewedJokes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ViewedJok__UserI__5CD6CB2B" Association="ZenSDBModel.FK__ViewedJok__UserI__5CD6CB2B">
+      <End Role="User" EntitySet="Users" />
+      <End Role="ViewedJoke" EntitySet="ViewedJokes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ViewedJoke">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="JokeId" />
+      <PropertyRef Name="ViewTime" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="JokeId" Type="Int32" Nullable="false" />
+    <Property Name="ViewTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Like" Type="Boolean" />
+    <NavigationProperty Name="Joke" Relationship="ZenSDBModel.FK__ViewedJok__JokeI__5DCAEF64" FromRole="ViewedJoke" ToRole="Joke" />
+    <NavigationProperty Name="User" Relationship="ZenSDBModel.FK__ViewedJok__UserI__5CD6CB2B" FromRole="ViewedJoke" ToRole="User" />
+  </EntityType>
+  <Association Name="FK__ViewedJok__JokeI__5DCAEF64">
+    <End Type="ZenSDBModel.Joke" Role="Joke" Multiplicity="1" />
+    <End Type="ZenSDBModel.ViewedJoke" Role="ViewedJoke" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Joke">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ViewedJoke">
+        <PropertyRef Name="JokeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ViewedJok__UserI__5CD6CB2B">
+    <End Type="ZenSDBModel.User" Role="User" Multiplicity="1" />
+    <End Type="ZenSDBModel.ViewedJoke" Role="ViewedJoke" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ViewedJoke">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

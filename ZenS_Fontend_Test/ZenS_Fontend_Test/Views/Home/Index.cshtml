@@ -1,0 +1,82 @@
+﻿@model ZenS_Fontend_Test.Models.Joke
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <div class="row" style="height:23vh;">
+        <div class="row" style="background-color: #29b363;">
+            <div class="col d-flex justify-content-center align-items-center flex-column text-white">
+                <h2 class="text-white">A joke a day keeps the doctor away</h2>
+                <p class="small-text">If you joke wrong way, your teeth have to pay. (Serious)</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row container vinhcontainer">
+        <div class="row" style="height:auto;">
+            <div class="col d-flex justify-content-center align-items-center flex-column text-muted">
+                <p id="text-content" data-jokeid="@Model.Id" style="font-size: 18px; padding-top: 5vh; padding-bottom: 5vh;">
+                    @Model.Content
+                </p>
+            </div>
+        </div>
+
+        <hr class="row hr-custom" />
+
+        <div class="row" style="height:15vh;">
+            <div class="col d-flex justify-content-center align-items-center flex-row">
+                <button id="btnlike" class="left-button text-white border-0 like" type="button">This is Funny!</button>
+                <button class="right-button text-white dislike" type="button">This is not funny.</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+        jQuery(window).on("load", function () {
+
+        });
+
+        $(document).ready(function () {
+
+            // button like clicked
+            $(document).on('click', '.like', function () {
+                var jokeId = $('#text-content').data('jokeid');
+                $.post('@Url.Action("Like", "Home")', { jokeId: jokeId })
+                    .done(function (response) {
+                        updateJoke(response);
+                    })
+                    .fail(function (error) {
+                        JSON.stringify(error);
+                        console.log(error);
+                    });
+            });
+
+            // button dislike clicked
+            $(document).on('click', '.dislike', function () {
+                var jokeId = $('#text-content').data('jokeid');
+                $.post('@Url.Action("Dislike", "Home")', { jokeId: jokeId })
+                    .done(function (response) {
+                        updateJoke(response);
+                    })
+                    .fail(function (error) {
+                        console.log(error);
+                    });
+            });
+        });
+
+        function updateJoke(response){
+            if (response.success) {
+                $('#text-content').data('jokeid', response.data.Id);
+                $('#text-content').text(response.data.Content);
+            } else {
+                alert(response.message);
+            }
+        }
+
+    </script>
+}

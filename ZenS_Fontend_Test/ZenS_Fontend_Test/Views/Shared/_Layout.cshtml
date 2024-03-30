@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container" style="width:60vw; height:10vh;">
+            <a class="navbar-brand" style="width:auto; height:100%; margin-left:-4vw;" href="#">
+                <img  style="width:100%; height:100%"  src="~/Asset/HLS-Logo.png" alt="logo">
+            </a>
+            <div class="col" style="text-align:right;">
+                <p class="row-cols-xxl-6 text-muted" style="margin-right:20px; margin-top:15px"><em>Handicrafted by</em></p>
+                <p class="row-cols-xxl-6" style="margin-right:20px; margin-top:-15px">Jim HLS</p>
+                <p></p>
+            </div>
+            <a class="navbar-brand ml-auto"  style="width: auto; height: 100%; margin-right: -4vw" href="#">
+                <img style="width:100%; height:100%" class="avatar-img rounded-circle img" src="~/Asset/avatar.jpg" alt="avatar">
+            </a>
+        </div>
+    </nav>
+    <div class="">
+        @RenderBody()
+        <hr />
+        <footer>
+            <div class="container"  style="max-width: calc(3/4 * 100%);">
+                <div class="row">
+                    <div class="col d-flex justify-content-center align-items-center flex-column mx-5">
+                        @*<p class="" style="text-align: center;">
+                            This website is created as part of Hlsolutions program. The materials contained on this website are provider for general
+                            information only and do not constitute any form of advice. HLS assume no responsibility for the accuracy of any particular statement and
+                            accepts no liability for any loss or damege which many arise from reliance on the information contained on this site.
+                        </p>*@
+
+                        <p class="text-muted my-0 small-text">
+                            This website is created as part of Hlsolutions program. The materials contained on this website are provider for general
+                        </p>
+                        <p class="text-muted my-0 small-text">
+                            information only and do not constitute any form of advice. HLS assume no responsibility for the accuracy of any particular statement and
+                        </p>
+                        <p class="text-muted my-0 small-text">
+                            accepts no liability for any loss or damege which many arise from reliance on the information contained on this site.
+                        </p>
+                        <p class="my-2" style="font-size:15px">Coppyright 2021 HLS</p>
+                    </div>
+                </div>
+            </div>
+
+            
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

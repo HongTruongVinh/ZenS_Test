@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ZenSDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Jokes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ViewedJoke">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="JokeId" />
+            <PropertyRef Name="ViewTime" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="JokeId" Type="int" Nullable="false" />
+          <Property Name="ViewTime" Type="datetime" Nullable="false" />
+          <Property Name="Like" Type="bit" />
+        </EntityType>
+        <Association Name="FK__ViewedJok__JokeI__5DCAEF64">
+          <End Role="Jokes" Type="Self.Jokes" Multiplicity="1" />
+          <End Role="ViewedJoke" Type="Self.ViewedJoke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jokes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ViewedJoke">
+              <PropertyRef Name="JokeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ViewedJok__UserI__5CD6CB2B">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="ViewedJoke" Type="Self.ViewedJoke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ViewedJoke">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ZenSDBModelStoreContainer">
+          <EntitySet Name="Jokes" EntityType="Self.Jokes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ViewedJoke" EntityType="Self.ViewedJoke" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ViewedJok__JokeI__5DCAEF64" Association="Self.FK__ViewedJok__JokeI__5DCAEF64">
+            <End Role="Jokes" EntitySet="Jokes" />
+            <End Role="ViewedJoke" EntitySet="ViewedJoke" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ViewedJok__UserI__5CD6CB2B" Association="Self.FK__ViewedJok__UserI__5CD6CB2B">
+            <End Role="User" EntitySet="User" />
+            <End Role="ViewedJoke" EntitySet="ViewedJoke" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ZenSDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Joke">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ViewedJokes" Relationship="ZenSDBModel.FK__ViewedJok__JokeI__5DCAEF64" FromRole="Joke" ToRole="ViewedJoke" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ViewedJokes" Relationship="ZenSDBModel.FK__ViewedJok__UserI__5CD6CB2B" FromRole="User" ToRole="ViewedJoke" />
+        </EntityType>
+        <EntityContainer Name="ZenSDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Jokes" EntityType="Self.Joke" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="ViewedJokes" EntityType="ZenSDBModel.ViewedJoke" />
+          <AssociationSet Name="FK__ViewedJok__JokeI__5DCAEF64" Association="ZenSDBModel.FK__ViewedJok__JokeI__5DCAEF64">
+            <End Role="Joke" EntitySet="Jokes" />
+            <End Role="ViewedJoke" EntitySet="ViewedJokes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ViewedJok__UserI__5CD6CB2B" Association="ZenSDBModel.FK__ViewedJok__UserI__5CD6CB2B">
+            <End Role="User" EntitySet="Users" />
+            <End Role="ViewedJoke" EntitySet="ViewedJokes" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="ViewedJoke">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="JokeId" />
+            <PropertyRef Name="ViewTime" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="JokeId" Type="Int32" Nullable="false" />
+          <Property Name="ViewTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Like" Type="Boolean" />
+          <NavigationProperty Name="Joke" Relationship="ZenSDBModel.FK__ViewedJok__JokeI__5DCAEF64" FromRole="ViewedJoke" ToRole="Joke" />
+          <NavigationProperty Name="User" Relationship="ZenSDBModel.FK__ViewedJok__UserI__5CD6CB2B" FromRole="ViewedJoke" ToRole="User" />
+        </EntityType>
+        <Association Name="FK__ViewedJok__JokeI__5DCAEF64">
+          <End Type="ZenSDBModel.Joke" Role="Joke" Multiplicity="1" />
+          <End Type="ZenSDBModel.ViewedJoke" Role="ViewedJoke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Joke">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ViewedJoke">
+              <PropertyRef Name="JokeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ViewedJok__UserI__5CD6CB2B">
+          <End Type="ZenSDBModel.User" Role="User" Multiplicity="1" />
+          <End Type="ZenSDBModel.ViewedJoke" Role="ViewedJoke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ViewedJoke">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ZenSDBModelStoreContainer" CdmEntityContainer="ZenSDBEntities">
+          <EntitySetMapping Name="Jokes">
+            <EntityTypeMapping TypeName="ZenSDBModel.Joke">
+              <MappingFragment StoreEntitySet="Jokes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ZenSDBModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewedJokes">
+            <EntityTypeMapping TypeName="ZenSDBModel.ViewedJoke">
+              <MappingFragment StoreEntitySet="ViewedJoke">
+                <ScalarProperty Name="Like" ColumnName="Like" />
+                <ScalarProperty Name="ViewTime" ColumnName="ViewTime" />
+                <ScalarProperty Name="JokeId" ColumnName="JokeId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

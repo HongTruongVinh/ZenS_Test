@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZenS_Fontend_Test", "ZenS_Fontend_Test\ZenS_Fontend_Test.csproj", "{BC56E45C-3523-4EED-AC9A-5E5646851969}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC56E45C-3523-4EED-AC9A-5E5646851969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC56E45C-3523-4EED-AC9A-5E5646851969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC56E45C-3523-4EED-AC9A-5E5646851969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC56E45C-3523-4EED-AC9A-5E5646851969}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDF001DC-28D7-4170-8603-86B1CA20FDC3}
+	EndGlobalSection
+EndGlobal

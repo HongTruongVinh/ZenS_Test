@@ -1,0 +1,73 @@
+﻿/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.navbar-brand img {
+    width: 30px;
+    height: auto;
+}
+
+.vinhcontainer {
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 63vw;
+}
+
+.right-button {
+    margin-top: -4vw;
+    margin-left: 1vw;
+    background-color: #29b363;
+    min-height:5vh;
+    height: auto;
+    width: 17vw;
+    border: 0px;
+    box-shadow: 0 3px #089141;
+}
+
+.left-button {
+    margin-top: -4vw;
+    background-color: #2c7edb;
+    min-height: 5vh;
+    height: auto;
+    width: 17vw;
+    border: 0px;
+    box-shadow: 0 3px #0c5ebc;
+}
+
+.small-text {
+    font-size:13px;
+}
+
+.hr-custom {
+    border: none;
+    height: 2px;
+    background-color: #ccc;
+    width:46vw;
+    margin-left:6vw;
+    font-weight:500;
+}
+
+.text-content {
+    font-size: 18px;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    font-weight: 400;
+}
