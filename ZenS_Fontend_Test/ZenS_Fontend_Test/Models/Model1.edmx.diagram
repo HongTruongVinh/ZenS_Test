@@ -6,10 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="7d8854db709b48a583e6c2f916e45a8e" Name="Diagram1">
         <EntityTypeShape EntityType="ZenSDBModel.Joke" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZenSDBModel.User" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZenSDBModel.ViewedJoke" Width="1.5" PointX="3" PointY="2.25" />
-        <AssociationConnector Association="ZenSDBModel.FK__ViewedJok__JokeI__5DCAEF64" />
-        <AssociationConnector Association="ZenSDBModel.FK__ViewedJok__UserI__5CD6CB2B" />
+        <EntityTypeShape EntityType="ZenSDBModel.ViewJoke" Width="1.5" PointX="3" PointY="0.875" />
+        <AssociationConnector Association="ZenSDBModel.FK__ViewJoke__JokeId__6FE99F9F" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

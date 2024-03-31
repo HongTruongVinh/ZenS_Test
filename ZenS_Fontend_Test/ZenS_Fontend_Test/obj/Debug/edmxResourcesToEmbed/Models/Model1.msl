@@ -10,21 +10,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="ZenSDBModel.User">
-        <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="FullName" ColumnName="FullName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ViewedJokes">
-      <EntityTypeMapping TypeName="ZenSDBModel.ViewedJoke">
-        <MappingFragment StoreEntitySet="ViewedJoke">
+    <EntitySetMapping Name="ViewJokes">
+      <EntityTypeMapping TypeName="ZenSDBModel.ViewJoke">
+        <MappingFragment StoreEntitySet="ViewJoke">
           <ScalarProperty Name="Like" ColumnName="Like" />
           <ScalarProperty Name="ViewTime" ColumnName="ViewTime" />
           <ScalarProperty Name="JokeId" ColumnName="JokeId" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

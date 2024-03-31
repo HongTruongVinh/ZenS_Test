@@ -26,7 +26,6 @@ namespace ZenS_Fontend_Test.Models
         }
     
         public virtual DbSet<Joke> Jokes { get; set; }
-        public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<ViewedJoke> ViewedJokes { get; set; }
+        public virtual DbSet<ViewJoke> ViewJokes { get; set; }
     }
 }

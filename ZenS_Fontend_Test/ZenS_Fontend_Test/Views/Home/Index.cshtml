@@ -46,6 +46,11 @@
             // button like clicked
             $(document).on('click', '.like', function () {
                 var jokeId = $('#text-content').data('jokeid');
+                
+                if (jokeId === -1) {
+                    return AlertEndJoke();
+                } 
+
                 $.post('@Url.Action("Like", "Home")', { jokeId: jokeId })
                     .done(function (response) {
                         updateJoke(response);
@@ -59,6 +64,11 @@
             // button dislike clicked
             $(document).on('click', '.dislike', function () {
                 var jokeId = $('#text-content').data('jokeid');
+                
+                if (jokeId === -1) {
+                    return AlertEndJoke();
+                } 
+
                 $.post('@Url.Action("Dislike", "Home")', { jokeId: jokeId })
                     .done(function (response) {
                         updateJoke(response);
@@ -76,6 +86,10 @@
             } else {
                 alert(response.message);
             }
+        }
+
+        function AlertEndJoke() {
+            $('#text-content').text("That's all the jokes for today! Come back another day!");
         }
 
     </script>

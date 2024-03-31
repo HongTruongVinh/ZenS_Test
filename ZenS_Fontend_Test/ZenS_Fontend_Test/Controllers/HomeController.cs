@@ -16,15 +16,15 @@ namespace ZenS_Fontend_Test.Controllers
         {
             Joke joke;
 
-            string userInfor = CookieHelper.Get("userInfor");
+            string jokeIdCookie = CookieHelper.Get("jokeIdCookie");
 
-            if (String.IsNullOrEmpty(userInfor))
+            if (String.IsNullOrEmpty(jokeIdCookie))
             {
                 joke = JokeService.GetNextJoke(0);
             }
             else
             {
-                joke = JokeService.GetNextJoke(int.Parse(userInfor));
+                joke = JokeService.GetNextJoke(int.Parse(jokeIdCookie));
             }
             
             return View(joke);
@@ -33,11 +33,11 @@ namespace ZenS_Fontend_Test.Controllers
         [HttpPost]
         public JsonResult Like(int jokeId)
         {
-            CookieHelper.Create("userInfor", jokeId.ToString(), DateTime.Now.AddDays(1));
+            CookieHelper.Create("jokeIdCookie", jokeId.ToString(), DateTime.Now.AddDays(1));
 
             try
             {
-                JokeService.Vote(jokeId, 1, true);
+                JokeService.Vote(jokeId, true);
 
                 Joke joke = JokeService.GetNextJoke(jokeId);
 
@@ -52,11 +52,11 @@ namespace ZenS_Fontend_Test.Controllers
         [HttpPost]
         public JsonResult Dislike(int jokeId)
         {
-            CookieHelper.Create("userInfor", jokeId.ToString(), DateTime.Now.AddDays(1));
+            CookieHelper.Create("jokeIdCookie", jokeId.ToString(), DateTime.Now.AddDays(1));
 
             try
             {
-                JokeService.Vote(jokeId, 1, false);
+                JokeService.Vote(jokeId, false);
 
                 Joke joke = JokeService.GetNextJoke(jokeId);
                 

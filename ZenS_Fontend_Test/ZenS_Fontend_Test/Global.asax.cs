@@ -21,7 +21,7 @@ namespace ZenS_Fontend_Test
 
             if(DataProvider.Ins.DB.Jokes.Count() < 1)
             {
-                //JokeService.InitalJoke();
+                JokeService.InitalJoke();
             }
         }
     }

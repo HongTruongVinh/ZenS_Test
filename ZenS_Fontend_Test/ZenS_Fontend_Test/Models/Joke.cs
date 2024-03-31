@@ -17,7 +17,7 @@ namespace ZenS_Fontend_Test.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Joke()
         {
-            this.ViewedJokes = new HashSet<ViewedJoke>();
+            this.ViewJokes = new HashSet<ViewJoke>();
         }
     
         public int Id { get; set; }
@@ -25,6 +25,6 @@ namespace ZenS_Fontend_Test.Models
         public string Content { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ViewedJoke> ViewedJokes { get; set; }
+        public virtual ICollection<ViewJoke> ViewJokes { get; set; }
     }
 }
